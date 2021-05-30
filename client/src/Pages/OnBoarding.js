@@ -5,6 +5,7 @@ import stylesOnBoarding from '../Components/OnBoarding/stylesOnBoarding';
 import { Paper, Divider } from '@material-ui/core';
 import ProgressBar from '../Components/OnBoarding/ProgressBar';
 import ProfileSetup from '../Components/OnBoarding/ProfileSetup';
+import MetaMaskConnect from '../Components/OnBoarding/MetaMaskConnect';
 import ConnectedPage from '../Components/OnBoarding/ConnectedPage';
 import AvailabilitySetup from '../Components/OnBoarding/AvailabilitySetup';
 import handleFetchErrors from '../utils/handleFetchErrors';
@@ -12,6 +13,10 @@ import PropTypes from 'prop-types';
 import auth from '../auth';
 
 const text = {
+  connect: {
+    header: 'Connect to MetaMask',
+    btnText: 'Connect with MetaMask',
+  },
   profile: {
     header: 'Welcome to CalendApp!',
     btnText: 'Continue',
@@ -43,6 +48,9 @@ function OnBoarding({ classes, type, activeStep }) {
   let history = useHistory();
 
   function getStepContent(type) {
+    if (type === 'connect') {
+      return <MetaMaskConnect handleMetaMaskSubmit={handleMetaMaskSubmit} btnText={text[type].btnText} />;
+    }
     if (type === 'profile') {
       return (
         <ProfileSetup
@@ -77,6 +85,9 @@ function OnBoarding({ classes, type, activeStep }) {
     history.push('/availability');
   };
 
+  const handleMetaMaskSubmit = () => {
+    history.push('/profile');
+  };
   const handleProfileSubmit = () => {
     //prevents going to next form until url is unique & timezone + url is not empty
     //TODO: needs error handling. No message displayed for errors
