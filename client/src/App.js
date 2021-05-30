@@ -54,7 +54,7 @@ function App({ classes }) {
                     <Form type="signup" />
                   </Route>
                   <PrivateRoute path="/profile_settings" type="connect" activeStep={0} component={OnBoarding} />
-                  <PrivateRoute path="/profile_settings" type="profile" activeStep={20} component={OnBoarding} />
+                  <PrivateRoute path="/profile" type="profile" activeStep={20} component={OnBoarding} />
                   <PrivateRoute path="/confirm" type="confirm" activeStep={50} component={OnBoarding} />
                   <PrivateRoute path="/availability" type="availability" activeStep={100} component={OnBoarding} />
                 </Switch>
