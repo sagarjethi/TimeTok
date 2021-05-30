@@ -29,7 +29,7 @@ function ConnectionInfo({
       <Grid item xs={8}>
         <TextField
           className={classes.urlField}
-          id="url-field"
+          id="deployTokenContract-field"
           variant="outlined"
           value={deployTokenContract}
           onChange={(e) => setDeployTokenContract(e.target.value)}
@@ -41,7 +41,7 @@ function ConnectionInfo({
       <Grid item xs={8}>
         <TextField
           className={classes.urlField}
-          id="url-field"
+          id="symbol-field"
           variant="outlined"
           value={symbol}
           onChange={(e) => setSymbol(e.target.value)}
@@ -53,7 +53,7 @@ function ConnectionInfo({
       <Grid item xs={8}>
         <TextField
           className={classes.urlField}
-          id="url-field"
+          id="name-field"
           variant="outlined"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -65,7 +65,7 @@ function ConnectionInfo({
       <Grid item xs={8}>
         <TextField
           className={classes.urlField}
-          id="url-field"
+          id="decimals-field"
           variant="outlined"
           value={decimals}
           onChange={(e) => setDecimals(e.target.value)}
@@ -77,7 +77,7 @@ function ConnectionInfo({
       <Grid item xs={8}>
         <TextField
           className={classes.urlField}
-          id="url-field"
+          id="totalSupply-field"
           variant="outlined"
           value={totalSupply}
           onChange={(e) => setTotalSupply(e.target.value)}
