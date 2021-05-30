@@ -17,6 +17,10 @@ const text = {
     header: 'Connect to MetaMask',
     btnText: 'Connect with MetaMask',
   },
+  connectionInfo: {
+    header: 'Connection Information',
+    btnText: 'Submit',
+  },
   profile: {
     header: 'Welcome to CalendApp!',
     btnText: 'Continue',
@@ -33,6 +37,11 @@ const text = {
 
 function OnBoarding({ classes, type, activeStep }) {
   const [url, setUrl] = useState('');
+  const [deployTokenContract, setDeployTokenContract] = useState('');
+  const [symbol, setSymbol] = useState('');
+  const [name, setName] = useState('');
+  const [decimals, setDecimals] = useState('');
+  const [totalSupply, setTotalSupply] = useState('');
   const [timeZone, setTimeZone] = useState('');
   const [hours, setHours] = useState({ start: '09:00', end: '17:00' });
   const [days, setDays] = useState({
@@ -50,6 +59,24 @@ function OnBoarding({ classes, type, activeStep }) {
   function getStepContent(type) {
     if (type === 'connect') {
       return <MetaMaskConnect handleMetaMaskSubmit={handleMetaMaskSubmit} btnText={text[type].btnText} />;
+    }
+    if (type === 'connectionInfo') {
+      return (
+        <MetaMaskConnect
+          handleConnectionInfoSubmit={handleConnectionInfoSubmit}
+          btnText={text[type].btnText}
+          deployTokenContract={deployTokenContract}
+          symbol={symbol}
+          name={name}
+          decimals={decimals}
+          totalSupply={totalSupply}
+          setDeployTokenContract={setDeployTokenContract}
+          setSymbol={setSymbol}
+          setName={setName}
+          setDecimals={setDecimals}
+          setTotalSupply={setTotalSupply}
+        />
+      );
     }
     if (type === 'profile') {
       return (
@@ -86,6 +113,9 @@ function OnBoarding({ classes, type, activeStep }) {
   };
 
   const handleMetaMaskSubmit = () => {
+    history.push('/connectionInfo');
+  };
+  const handleConnectionInfoSubmit = () => {
     history.push('/profile');
   };
   const handleProfileSubmit = () => {

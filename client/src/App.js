@@ -54,8 +54,9 @@ function App({ classes }) {
                     <Form type="signup" />
                   </Route>
                   <PrivateRoute path="/profile_settings" type="connect" activeStep={0} component={OnBoarding} />
-                  <PrivateRoute path="/profile" type="profile" activeStep={20} component={OnBoarding} />
-                  <PrivateRoute path="/confirm" type="confirm" activeStep={50} component={OnBoarding} />
+                  <PrivateRoute path="/connectionInfo" type="connectionInfo" activeStep={20} component={OnBoarding} />
+                  <PrivateRoute path="/profile" type="profile" activeStep={50} component={OnBoarding} />
+                  <PrivateRoute path="/confirm" type="confirm" activeStep={70} component={OnBoarding} />
                   <PrivateRoute path="/availability" type="availability" activeStep={100} component={OnBoarding} />
                 </Switch>
               </React.Fragment>
